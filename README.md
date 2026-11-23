@@ -300,3 +300,6 @@ Keep-Alive: timeout=5
 
 - **Express 5 Sub-Router Path Matching:** Used `app.use("/api", ...)` instead of Express 4's `app.get("/api/*", ...)` for the API 404 fallback so unmatched sub-routes return JSON `404` cleanly without triggering Express 5 `path-to-regexp` errors.
 - **Coupled `read` and `rating` Validation on `PATCH`:** Ensuring that setting `read: false` via `PATCH` also clears `rating` to `null` required merging partial payloads with the existing book object before running full validation.
+
+---
+*Verified across Express 5 backend (`PORT=3000`) and React Vite client (`VITE_API_URL=http://localhost:3000`) without proxy configuration.*
