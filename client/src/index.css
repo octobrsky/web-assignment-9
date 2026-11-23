@@ -104,3 +104,9 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 .book-meta { margin: 4px 0 0 0; color: var(--muted); font-size: 0.9rem; }
 .book-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .state-box { text-align: center; color: var(--muted); }
+
+.results-count {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}

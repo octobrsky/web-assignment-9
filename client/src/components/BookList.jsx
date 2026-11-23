@@ -11,6 +11,9 @@ export function BookList({ books, loading, onToggleRead, onRate, onEdit, onDelet
 
   return (
     <section className="book-list" aria-label="Books">
+      <p className="results-count">
+        Showing <strong>{books.length}</strong> {books.length === 1 ? "book" : "books"}
+      </p>
       {books.map((book) => (
         <BookItem
           key={book.id}
