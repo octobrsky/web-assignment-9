@@ -1,5 +1,13 @@
 const GENRES = ["fiction", "non-fiction", "science", "history", "fantasy", "other"];
 
+const DEFAULT_FILTERS = {
+  q: "",
+  genre: "",
+  read: "",
+  sort: "",
+  order: "asc"
+};
+
 export function FilterBar({ filters, onChange }) {
   function handleField(field, value) {
     onChange({
@@ -7,6 +15,13 @@ export function FilterBar({ filters, onChange }) {
       [field]: value
     });
   }
+
+  const hasActiveFilters =
+    filters.q !== "" ||
+    filters.genre !== "" ||
+    filters.read !== "" ||
+    filters.sort !== "" ||
+    filters.order !== "asc";
 
   return (
     <section className="card filter-bar" aria-label="Search and Filter">
@@ -61,6 +76,16 @@ export function FilterBar({ filters, onChange }) {
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>
+
+        {hasActiveFilters && (
+          <button
+            type="button"
+            className="btn-secondary"
+            onClick={() => onChange(DEFAULT_FILTERS)}
+          >
+            Reset Filters
+          </button>
+        )}
       </div>
     </section>
   );
